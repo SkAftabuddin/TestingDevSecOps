@@ -1,9 +1,18 @@
-steps:
-  - name: Checkout Repository
-    uses: actions/checkout@v4
+name: Ephemeral Test
 
-  - name: Create Temporary File
-    run: echo "secret-data" > temp.txt
+on:
+  push:
 
-  - name: Verify File Exists
-    run: cat temp.txt
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Create Temporary File
+        run: echo "secret-data" > temp.txt
+
+      - name: Verify File Exists
+        run: cat temp.txt
