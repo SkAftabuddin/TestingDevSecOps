@@ -1,1 +1,1 @@
-console.log("Hello GitHub Actions");
+console.log("Pipeline is running successfully");
