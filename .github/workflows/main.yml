@@ -1,23 +1,12 @@
-name: Node.js Pipeline
+steps:
+  - name: Checkout Repository
+    uses: actions/checkout@v4
 
-on:
-  push:
+  - name: Create Temporary File
+    run: echo "secret-data" > temp.txt
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+  - name: Verify File Exists
+    run: cat temp.txt
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Application
-        run: npm start
+  - name: List Files
+    run: ls -la
